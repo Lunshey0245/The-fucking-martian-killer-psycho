@@ -6,23 +6,29 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     float speed;
-    Vector2 movement;
-
-    Rigidbody2D _rigidBody;
-
 
     [SerializeField]
     float jumpForce;
 
+    public int fuelMax;
+    public int currentFuel;
+    public PlayerFuel fuelBar;
+
     bool isFlying;
 
+
+    Vector2 movement;
+
     Animator _animator;
+    Rigidbody2D _rigidBody;
 
     void Start()
     {
         isFlying = false;
         _rigidBody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        currentFuel = fuelMax;
+        fuelBar.SetMaxFuel(fuelMax);
     }
 
     // Update is called once per frame
@@ -31,9 +37,10 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         Jump();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && currentFuel > 0)
         {
             isFlying = true;
+            StartCoroutine(UseFuel());
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -70,6 +77,23 @@ public class PlayerMovement : MonoBehaviour
             case false:
                 _rigidBody.AddForce(new Vector2(0f, 0f), ForceMode2D.Force);
                 break;
+        }
+    }
+
+    IEnumerator UseFuel()
+    {
+        for (float i = currentFuel; i  >= 1; i ++)
+        {
+            currentFuel -= 2;
+            fuelBar.SetFuel(currentFuel);
+            yield return new WaitForSeconds(0.01f);
+
+            if (Input.GetKeyUp(KeyCode.Space) || currentFuel < 0)
+            {
+                isFlying = false;
+
+                break;
+            }
         }
     }
 }
