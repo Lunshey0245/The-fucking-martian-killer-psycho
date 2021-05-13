@@ -16,10 +16,13 @@ public class PlayerMovement : MonoBehaviour
 
     bool isFlying;
 
+    Animator _animator;
+
     void Start()
     {
         isFlying = false;
         _rigidBody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
