@@ -6,6 +6,8 @@ public class PlasmaBullet : MonoBehaviour
 {
     [SerializeField]
     float speedBullet;
+    [SerializeField]
+    float lifetime;
 
     Rigidbody2D _rigidBody;
     void Start()
@@ -17,5 +19,6 @@ public class PlasmaBullet : MonoBehaviour
     void Update()
     {
         _rigidBody.velocity = new Vector2(speedBullet, 0);
+
     }
 }
