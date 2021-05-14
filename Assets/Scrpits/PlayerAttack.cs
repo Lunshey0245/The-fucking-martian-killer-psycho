@@ -9,9 +9,13 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     Transform posSpawnBullet;
+
+    Animator _animator;
+
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -20,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.RightControl))
         {
             Instantiate(plasmaBullet, posSpawnBullet.position, Quaternion.identity);
+            _animator.SetTrigger("Shot");
         }        
     }
 }

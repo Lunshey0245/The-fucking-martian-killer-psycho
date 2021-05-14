@@ -19,14 +19,16 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
-    Animator _animator;
+    [SerializeField]
+    Animator _animatorChildren;
+
     Rigidbody2D _rigidBody;
 
     void Start()
     {
         isFlying = false;
         _rigidBody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        
         currentFuel = fuelMax;
         fuelBar.SetMaxFuel(fuelMax);
     }
@@ -40,11 +42,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && currentFuel > 0)
         {
             isFlying = true;
+            _animatorChildren.SetBool("Isflying", true);
             //StartCoroutine(UseFuel());            
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isFlying = false;
+            _animatorChildren.SetBool("Isflying", false);
         }
 
         if (isFlying)
