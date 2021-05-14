@@ -475,6 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 832981500}
+  - component: {fileID: 832981501}
   m_Layer: 0
   m_Name: CenterSpawnPoint
   m_TagString: Untagged
@@ -496,6 +497,21 @@ Transform:
   m_Father: {fileID: 1398966261}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &832981501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832981499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea675735f7d10e7488aa4f0f31be407f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectsToSpawn:
+  - {fileID: 4954219018007443585, guid: ae0ea4da3f47dba4592506bc0de426d1, type: 3}
+  _secondsBetweenSpawns: 2
 --- !u!1 &836902255
 GameObject:
   m_ObjectHideFlags: 0
