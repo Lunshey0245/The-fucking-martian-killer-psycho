@@ -119,10 +119,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 currentFuel = fuelMax;
             }
-
             fuelBar.SetFuel(currentFuel);
             Destroy(collision.gameObject);
         }
-      
     }
 }

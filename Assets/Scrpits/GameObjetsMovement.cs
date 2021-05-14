@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundMovement : MonoBehaviour
+public class GameObjetsMovement : MonoBehaviour
 {
     Rigidbody2D _rigidBody;
     GameController _gameController;
