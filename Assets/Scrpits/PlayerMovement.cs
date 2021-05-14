@@ -40,11 +40,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && currentFuel > 0)
         {
             isFlying = true;
-            StartCoroutine(UseFuel());
+            //StartCoroutine(UseFuel());            
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isFlying = false;
+        }
+
+        if (isFlying)
+        {
+            UseFuel(1);
         }
 
     }
@@ -80,20 +85,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator UseFuel()
+    public void UseFuel(int usedFuel)
     {
-        for (float i = currentFuel; i  >= 1; i ++)
+        currentFuel -= usedFuel;
+        fuelBar.SetFuel(currentFuel);
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fuel"))
         {
-            currentFuel -= 2;
-            fuelBar.SetFuel(currentFuel);
-            yield return new WaitForSeconds(0.01f);
-
-            if (Input.GetKeyUp(KeyCode.Space) || currentFuel < 0)
+            currentFuel += 200;
+            if (currentFuel > fuelMax)
             {
-                isFlying = false;
-
-                break;
+                currentFuel = fuelMax;
             }
+
+            fuelBar.SetFuel(currentFuel);
         }
+      
     }
 }

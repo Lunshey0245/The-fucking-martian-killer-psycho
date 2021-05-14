@@ -21,4 +21,10 @@ public class PlayerFuel : MonoBehaviour
         slider.value = fuel;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+
+    public void AddFuel(int fuelValue)
+    {
+        slider.value += fuelValue;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
 }
