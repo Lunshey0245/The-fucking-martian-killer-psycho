@@ -24,13 +24,15 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D _rigidBody;
 
+    GameController _gameController;
     void Start()
     {
         isFlying = false;
         _rigidBody = GetComponent<Rigidbody2D>();
-        
+        _gameController = GetComponent<GameController>();
         currentFuel = fuelMax;
         fuelBar.SetMaxFuel(fuelMax);
+        StartCoroutine(UseFuelAlways());
     }
 
     // Update is called once per frame
@@ -43,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isFlying = true;
             _animatorChildren.SetBool("Isflying", true);
-            //StartCoroutine(UseFuel());            
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -93,7 +94,20 @@ public class PlayerMovement : MonoBehaviour
     {
         currentFuel -= usedFuel;
         fuelBar.SetFuel(currentFuel);
-        
+        if (currentFuel <= 0)
+        {
+            isFlying = false;
+        }   
+    }
+
+    IEnumerator UseFuelAlways()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            currentFuel -= 1;
+            fuelBar.SetFuel(currentFuel);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

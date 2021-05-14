@@ -7,6 +7,9 @@ public class PlasmaBullet : MonoBehaviour
     [SerializeField]
     float speedBullet;
 
+    [SerializeField]
+    int bulletDamage;
+
     Rigidbody2D _rigidBody;
     void Start()
     {
@@ -18,4 +21,15 @@ public class PlasmaBullet : MonoBehaviour
     {
         _rigidBody.velocity = new Vector2(speedBullet, 0);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyHealth>().TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
+    }
+
+
 }
