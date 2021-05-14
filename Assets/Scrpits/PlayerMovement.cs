@@ -103,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             fuelBar.SetFuel(currentFuel);
+            Destroy(collision.gameObject);
         }
       
     }
