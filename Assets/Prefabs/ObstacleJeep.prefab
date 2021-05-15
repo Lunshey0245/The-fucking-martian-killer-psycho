@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6454192923504261875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08, y: 0.08, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6454192923995371731}
   m_RootOrder: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 144485723
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de1fc58a30ea23e469b7702113cec3a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b4567234369b6342b18057acbe6940e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,8 +92,9 @@ GameObject:
   - component: {fileID: 6454192923995371731}
   - component: {fileID: 4301187443825942697}
   - component: {fileID: 8419990789729065133}
-  - component: {fileID: 8152346099528665005}
   - component: {fileID: -5237681522241163773}
+  - component: {fileID: 4776584747085388031}
+  - component: {fileID: 4185596987456536979}
   m_Layer: 0
   m_Name: ObstacleJeep
   m_TagString: Enemy
@@ -110,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 6454192923995371564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6454192923504261874}
   m_Father: {fileID: 0}
@@ -149,32 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2687c78343c1a74087d6bfb66e5612d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &8152346099528665005
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6454192923995371564}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.034971118, y: 0.0051879883}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.49520427, y: 0.5878173}
-  m_EdgeRadius: 0
 --- !u!114 &-5237681522241163773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +162,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafbf76ff75a6fb48aa794ca789226f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
+  Health: 3
   fuelReward: {fileID: 5666709882251078329, guid: a353f3c25dda7ac4ca14d8391e8122c8,
     type: 3}
+  GOToDie: {fileID: 1036261447914182716, guid: 7b1ce6fa52edbe14ebd0637a1b0df34b, type: 3}
+  partsObstacle:
+  - {fileID: 4156363469092965945, guid: d856356c437ac414fb252605bd8ba9b3, type: 3}
+  - {fileID: 8904775768635402426, guid: 0e4bfda40bfdc084799089d630920660, type: 3}
+  - {fileID: 1730366376781022789, guid: 32d21cd5f2586eb449aea291cd013e07, type: 3}
+  - {fileID: 140707029823000568, guid: c18d2ae2b9a278a40bc36fef63cafea1, type: 3}
+--- !u!58 &4776584747085388031
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454192923995371564}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.34476757, y: -0.8766837}
+  serializedVersion: 2
+  m_Radius: 0.90750265
+--- !u!58 &4185596987456536979
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454192923995371564}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.71700656, y: 0.75668514}
+  serializedVersion: 2
+  m_Radius: 1.0176183

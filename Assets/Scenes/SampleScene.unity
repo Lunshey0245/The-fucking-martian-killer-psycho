@@ -904,7 +904,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.0919933, y: 0.8787012}
+  m_Offset: {x: -4.0919933, y: -0.021494865}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -915,7 +915,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25.879341, y: 10.138506}
+  m_Size: {x: 25.879341, y: 11.938898}
   m_EdgeRadius: 0
 --- !u!4 &896675866
 Transform:
@@ -1203,6 +1203,7 @@ MonoBehaviour:
   fuelBar: {fileID: 927147908}
   isUseFuelPerSecond: 0
   _animatorChildren: {fileID: 187125433}
+  isDead: 0
 --- !u!212 &1171842364
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1321,7 +1322,7 @@ MonoBehaviour:
   plasmaBullet: {fileID: 3099830710757194685, guid: 67084b6b1c279164ea9d42655340953d,
     type: 3}
   posSpawnBullet: {fileID: 933840612}
-  timeShot: 1
+  timeShot: 0.3
   timeBtwShot: 0
 --- !u!95 &1171842369
 Animator:

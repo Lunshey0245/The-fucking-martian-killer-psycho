@@ -8,8 +8,12 @@ public class EnemyHealth : MonoBehaviour
     int Health;
     [SerializeField]
     GameObject fuelReward;
-
+    [SerializeField]
+    GameObject GOToDie;
     SpriteRenderer _spriteRenderer;
+
+    [SerializeField]
+    GameObject[]partsObstacle;
 
     void Start()
     {
@@ -28,6 +32,12 @@ public class EnemyHealth : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(GOToDie, transform.position, Quaternion.identity);
+            // YA SE QUE SE HACE CON UN FOR pero ya me las estoy picandoy queria ver como quedaba
+            Instantiate(partsObstacle[0], transform.position, Quaternion.identity);
+            Instantiate(partsObstacle[1], transform.position, Quaternion.identity);
+            Instantiate(partsObstacle[2], transform.position, Quaternion.identity);
+            Instantiate(partsObstacle[3], transform.position, Quaternion.identity);
 
             if (Random.Range(0,2) == 1)
             {

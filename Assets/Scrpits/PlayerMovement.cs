@@ -18,15 +18,14 @@ public class PlayerMovement : MonoBehaviour
     bool isFlying;
     public bool isUseFuelPerSecond;
 
-
-    Vector2 movement;
-
     [SerializeField]
     Animator _animatorChildren;
 
     Rigidbody2D _rigidBody;
 
     GameController _gameController;
+    [SerializeField]
+    bool isDead = false;
     void Start()
     {
         isFlying = false;
@@ -40,9 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        Jump();
+        if (isDead)
+        {
+            _rigidBody.velocity = transform.right * -_gameController.speed;
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Space) && currentFuel > 0)
         {
             isFlying = true;
@@ -66,22 +67,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //FreeMovement();
+
         JumpForce();
-
     }
-    public void FreeMovement()
-    {
-        _rigidBody.MovePosition(_rigidBody.position + movement * speed * Time.fixedDeltaTime);
-    }
-    public void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            _rigidBody.velocity = Vector2.up * jumpForce;
-        }
-    }
-
 
     public void JumpForce()
     {
@@ -103,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (currentFuel <= 0)
         {
             isFlying = false;
+            isDead = true;
         }   
     }
 
@@ -115,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             fuelBar.SetFuel(currentFuel);
             if (currentFuel <= 0)
             {
+                isDead = true;
                 currentFuel = 0;
                 break;
             }
