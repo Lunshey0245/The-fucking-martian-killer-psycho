@@ -16,7 +16,7 @@ public class SpawnPoint : MonoBehaviour
     private bool isReady = true;
 
     private void Update()
-    {        
+    {
         if (GameController.GetGameState())
         {
             if (isReady)

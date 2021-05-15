@@ -99,6 +99,8 @@ MonoBehaviour:
   Health: 1
   fuelReward: {fileID: 5666709882251078329, guid: a353f3c25dda7ac4ca14d8391e8122c8,
     type: 3}
+  GOToDie: {fileID: 1036261447914182716, guid: 7b1ce6fa52edbe14ebd0637a1b0df34b, type: 3}
+  partsObstacle: []
 --- !u!1 &8517668189140318032
 GameObject:
   m_ObjectHideFlags: 0
