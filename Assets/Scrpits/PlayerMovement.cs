@@ -35,10 +35,9 @@ public class PlayerMovement : MonoBehaviour
         currentFuel = fuelMax;
         fuelBar.SetMaxFuel(fuelMax);
         isUseFuelPerSecond = false;
-
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");

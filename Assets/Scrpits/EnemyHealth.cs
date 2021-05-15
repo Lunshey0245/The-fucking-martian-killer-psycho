@@ -14,7 +14,6 @@ public class EnemyHealth : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

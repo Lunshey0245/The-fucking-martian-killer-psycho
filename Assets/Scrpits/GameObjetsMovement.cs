@@ -7,8 +7,6 @@ public class GameObjetsMovement : MonoBehaviour
     Rigidbody2D _rigidBody;
     GameController _gameController;
 
-    bool isHelicoptero;
-
     float speed;
     void Start()
     {
@@ -18,10 +16,6 @@ public class GameObjetsMovement : MonoBehaviour
 
     void Update()
     {
-        if (isHelicoptero)
-        {
-            _rigidBody.velocity = transform.right * -speed;
-        }
         _rigidBody.velocity = transform.right * -_gameController.speed;
     }
 }
