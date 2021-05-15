@@ -113,6 +113,11 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             currentFuel -= fuelPerSecond;
             fuelBar.SetFuel(currentFuel);
+            if (currentFuel <= 0)
+            {
+                currentFuel = 0;
+                break;
+            }
         }
     }
 
