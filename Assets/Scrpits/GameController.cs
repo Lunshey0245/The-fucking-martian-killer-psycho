@@ -5,30 +5,59 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public float speed;
+
+    public bool gameStarted;
+    public bool gameOver;
+
+    PlayerMovement _playerMovement;
     void Start()
     {
-        StartGame();
+        PauseGame();
+        _playerMovement = FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>();
     }
 
     void Update()
     {
-        PauseGame();
+        StartGame();
     }
 
     public void StartGame()
     {
-        speed = 0;
+        if (!gameStarted)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                _playerMovement.isUseFuelPerSecond = true;
+                speed = 3;
+                StartCoroutine(UpgrateSpeed());
+                gameStarted = true;
+            }
+        }
+
     }
     public void PauseGame()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            speed = 3;
-        }
+        speed = 0;
+        gameStarted = false;
+        gameOver = false;
     }
 
     public void GameOver()
     {
-
+       
     }
+
+    IEnumerator UpgrateSpeed()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            speed += 0.1f;
+            if (gameOver)
+            {
+                break;
+            }
+        }
+    }
+
 }

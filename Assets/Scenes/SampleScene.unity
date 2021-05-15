@@ -1146,6 +1146,7 @@ MonoBehaviour:
   jumpForce: 30
   fuelMax: 500
   currentFuel: 0
+  fuelPerSecond: 4
   fuelBar: {fileID: 927147908}
   _animatorChildren: {fileID: 187125433}
 --- !u!212 &1171842364
@@ -1266,6 +1267,8 @@ MonoBehaviour:
   plasmaBullet: {fileID: 3099830710757194685, guid: 67084b6b1c279164ea9d42655340953d,
     type: 3}
   posSpawnBullet: {fileID: 933840612}
+  timeShot: 1
+  timeBtwShot: 0
 --- !u!95 &1171842369
 Animator:
   serializedVersion: 3
@@ -1566,7 +1569,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 1.0586342, y: 1.6569933}
@@ -1582,7 +1585,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.2147952, y: -1.6109631}

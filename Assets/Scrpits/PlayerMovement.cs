@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
     public int fuelMax;
     public int currentFuel;
+    public int fuelPerSecond;
     public PlayerFuel fuelBar;
 
     bool isFlying;
+    public bool isUseFuelPerSecond;
 
 
     Vector2 movement;
@@ -29,10 +31,11 @@ public class PlayerMovement : MonoBehaviour
     {
         isFlying = false;
         _rigidBody = GetComponent<Rigidbody2D>();
-        _gameController = GetComponent<GameController>();
+        _gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
         currentFuel = fuelMax;
         fuelBar.SetMaxFuel(fuelMax);
-        StartCoroutine(UseFuelAlways());
+        isUseFuelPerSecond = false;
+
     }
 
     // Update is called once per frame
@@ -56,7 +59,11 @@ public class PlayerMovement : MonoBehaviour
         {
             UseFuel(1);
         }
-
+        if (isUseFuelPerSecond)
+        {
+            isUseFuelPerSecond = false;
+            StartCoroutine(UseFuelAlways());
+        }
     }
     private void FixedUpdate()
     {
@@ -105,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
-            currentFuel -= 1;
+            currentFuel -= fuelPerSecond;
             fuelBar.SetFuel(currentFuel);
         }
     }
