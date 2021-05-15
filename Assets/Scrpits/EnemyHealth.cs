@@ -6,12 +6,14 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
     int Health;
+    [SerializeField]
+    GameObject fuelReward;
 
     SpriteRenderer _spriteRenderer;
 
     void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,11 @@ public class EnemyHealth : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
+
+            if (Random.Range(0,2) == 1)
+            {
+                Instantiate(fuelReward, this.transform.position, Quaternion.identity);
+            }
         }
     }
 

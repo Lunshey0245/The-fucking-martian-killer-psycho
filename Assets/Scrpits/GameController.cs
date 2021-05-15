@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     public float speed;
 
-    public bool gameStarted;
+    public static bool gameStarted;
     public bool gameOver;
 
     PlayerMovement _playerMovement;
@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
                 speed = 3;
                 StartCoroutine(UpgrateSpeed());
                 gameStarted = true;
+
             }
         }
 
@@ -58,6 +59,11 @@ public class GameController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public static bool GetGameState()
+    {
+        return gameStarted;
     }
 
 }

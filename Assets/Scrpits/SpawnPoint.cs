@@ -1,45 +1,40 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
     [SerializeField]
-    public List<GameObject> _objectsToSpawn;
+    private List<GameObject> _objectsToSpawn = new List<GameObject>();
     [SerializeField]
-    public float _secondsBetweenSpawns;
-
-    public List<GameObject> ObjectsToSpawn 
-    { 
-        get { return _objectsToSpawn; } 
-        set { _objectsToSpawn = value; } 
-    }
-    public float SecondsBetweenSpawns 
-    {
-        get { return _secondsBetweenSpawns; }
-        set { _secondsBetweenSpawns = value; } 
-    }
-
+    private float _secondsBetweenSpawns;
+    [SerializeField]
+    private int minTime;
+    [SerializeField]
+    private int maxTime;
+    
     private bool isReady = true;
 
     private void Update()
-    {
-        if (isReady)
+    {        
+        if (GameController.GetGameState())
         {
-            isReady = false;
-            StartCoroutine(GetObjects());
+            if (isReady)
+            {
+                isReady = false;
+                StartCoroutine(GetObjects());
+            }
         }
+
     }
 
     IEnumerator GetObjects()
     {
-        foreach (var oneObject in _objectsToSpawn)
-        {
-            SpawnObject(oneObject);
-            yield return new WaitForSeconds(_secondsBetweenSpawns);
-        }
+        int randomEnemyIndex = Random.Range(0, _objectsToSpawn.Count);
+        int seconds = Random.Range(minTime, maxTime);
 
+        yield return new WaitForSeconds(seconds);
+        SpawnObject(_objectsToSpawn[randomEnemyIndex]);
         isReady = true;
     }
 
