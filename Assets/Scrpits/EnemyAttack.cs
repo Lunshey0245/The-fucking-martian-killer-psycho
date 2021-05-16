@@ -15,9 +15,19 @@ public class EnemyAttack : MonoBehaviour
 
     [SerializeField]
     GameObject bullet;
+
+    [SerializeField]
+    GameObject fireShot;
+
+    [SerializeField]
+    bool isJeep;
     void Start()
     {
         timeBtwShot = timeShotMax;
+        if (isJeep)
+        {
+            fireShot.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -28,7 +38,21 @@ public class EnemyAttack : MonoBehaviour
         if (timeBtwShot < 0)
         {
             timeBtwShot = timeToShot;
+            if (isJeep)
+            {
+                StartCoroutine(FireAnimation());
+            }
             Instantiate(bullet, shotPos.transform.position, Quaternion.identity);
+        }
+        /*if (timeBtwShot > 0)
+        {
+
+        }*/
+        IEnumerator FireAnimation()
+        {
+            fireShot.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            fireShot.SetActive(false);
         }
     }
 }
