@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2687c78343c1a74087d6bfb66e5612d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedUpgrate: 0
 --- !u!114 &-5237681522241163773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafbf76ff75a6fb48aa794ca789226f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 3
+  Health: 2
   fuelReward: {fileID: 5666709882251078329, guid: a353f3c25dda7ac4ca14d8391e8122c8,
     type: 3}
   GOToDie: {fileID: 1036261447914182716, guid: 7b1ce6fa52edbe14ebd0637a1b0df34b, type: 3}

@@ -33,12 +33,11 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(GOToDie, transform.position, Quaternion.identity);
-            // YA SE QUE SE HACE CON UN FOR pero ya me las estoy picandoy queria ver como quedaba
-            Instantiate(partsObstacle[0], transform.position, Quaternion.identity);
-            Instantiate(partsObstacle[1], transform.position, Quaternion.identity);
-            Instantiate(partsObstacle[2], transform.position, Quaternion.identity);
-            Instantiate(partsObstacle[3], transform.position, Quaternion.identity);
 
+            foreach (var part in partsObstacle)
+            {
+                Instantiate(part, transform.position, Quaternion.identity);
+            }
             if (Random.Range(0,2) == 1)
             {
                 Instantiate(fuelReward, this.transform.position, Quaternion.identity);

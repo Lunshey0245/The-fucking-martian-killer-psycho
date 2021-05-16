@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     float timeBtwShot;
+
+    public bool canShot;
   
     void Start()
     {
@@ -28,15 +30,18 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeBtwShot -= Time.deltaTime;
-        if (timeBtwShot <= 0)
+        if (canShot)
         {
-            timeBtwShot = 0;
-            if (Input.GetKeyUp(KeyCode.RightControl))
+            timeBtwShot -= Time.deltaTime;
+            if (timeBtwShot <= 0)
             {
-                Instantiate(plasmaBullet, posSpawnBullet.position, Quaternion.identity);
-                _animator.SetTrigger("Shot");
-                timeBtwShot = timeShot;
+                timeBtwShot = 0;
+                if (canShot)
+                {
+                    Instantiate(plasmaBullet, posSpawnBullet.position, Quaternion.identity);
+                    _animator.SetTrigger("Shot");
+                    timeBtwShot = timeShot;
+                }
             }
         }
     }

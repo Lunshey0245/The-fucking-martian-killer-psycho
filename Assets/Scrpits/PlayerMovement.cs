@@ -23,14 +23,13 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D _rigidBody;
 
-    GameController _gameController;
     [SerializeField]
     bool isDead = false;
     void Start()
     {
         isFlying = false;
         _rigidBody = GetComponent<Rigidbody2D>();
-        _gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
+        
         currentFuel = fuelMax;
         fuelBar.SetMaxFuel(fuelMax);
         isUseFuelPerSecond = false;
@@ -41,8 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead)
         {
-            _rigidBody.velocity = transform.right * -_gameController.speed;
-            return;
+            //Cuando Muere
         }
         if (Input.GetKeyDown(KeyCode.Space) && currentFuel > 0)
         {

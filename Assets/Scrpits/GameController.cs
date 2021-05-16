@@ -10,10 +10,12 @@ public class GameController : MonoBehaviour
     public bool gameOver;
 
     PlayerMovement _playerMovement;
+    PlayerAttack _playerAttack;
     void Start()
     {
         PauseGame();
         _playerMovement = FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>();
+        _playerAttack = FindObjectOfType<PlayerAttack>().GetComponent<PlayerAttack>();
     }
 
     void Update()
@@ -28,6 +30,7 @@ public class GameController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 _playerMovement.isUseFuelPerSecond = true;
+                _playerAttack.canShot = true;
                 speed = 3;
                 StartCoroutine(UpgrateSpeed());
                 gameStarted = true;

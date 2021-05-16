@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class GameObjetsMovement : MonoBehaviour
 {
     Rigidbody2D _rigidBody;
     GameController _gameController;
 
-    float speed;
+    [SerializeField]
+    float speedUpgrate;
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -16,6 +19,6 @@ public class GameObjetsMovement : MonoBehaviour
 
     void Update()
     {
-        _rigidBody.velocity = transform.right * -_gameController.speed;
+        _rigidBody.velocity = transform.right * -(_gameController.speed + speedUpgrate);
     }
 }

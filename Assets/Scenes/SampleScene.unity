@@ -572,7 +572,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -627,7 +627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582979394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 0, z: 0}
+  m_LocalPosition: {x: 17.33, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1398966261}
@@ -647,7 +647,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsToSpawn:
   - {fileID: 7109560130009212238, guid: e1808b312ee468a4891e580f3a9f38f1, type: 3}
-  - {fileID: 8517668187649652111, guid: c94fc543671300e4fad3165494823bf6, type: 3}
   _secondsBetweenSpawns: 2
   minTime: 5
   maxTime: 10
@@ -790,7 +789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832981499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 3, z: 0}
+  m_LocalPosition: {x: 17.33, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1398966261}
@@ -809,7 +808,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsToSpawn:
-  - {fileID: 8517668187649652111, guid: c94fc543671300e4fad3165494823bf6, type: 3}
   - {fileID: 7109560130009212238, guid: e1808b312ee468a4891e580f3a9f38f1, type: 3}
   _secondsBetweenSpawns: 2
   minTime: 1
@@ -904,7 +902,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.0919933, y: -0.021494865}
+  m_Offset: {x: -3.9890437, y: 0.23125744}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -915,7 +913,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25.879341, y: 11.938898}
+  m_Size: {x: 26.08524, y: 12.444403}
   m_EdgeRadius: 0
 --- !u!4 &896675866
 Transform:
@@ -925,7 +923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896675863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.10379282, y: -0.8747349, z: -16.746094}
+  m_LocalPosition: {x: 0.10379282, y: -0.73, z: -16.746094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1016,9 +1014,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 500
+  m_MaxValue: 1000
   m_WholeNumbers: 0
-  m_Value: 500
+  m_Value: 1000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1197,7 +1195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   jumpForce: 30
-  fuelMax: 500
+  fuelMax: 1000
   currentFuel: 0
   fuelPerSecond: 4
   fuelBar: {fileID: 927147908}
@@ -1262,7 +1260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171842362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4, y: 0.457, z: 0}
+  m_LocalPosition: {x: -8.79, y: -0.31, z: 0}
   m_LocalScale: {x: 0.5295136, y: 0.5295136, z: 0.5295136}
   m_Children:
   - {fileID: 933840612}
@@ -1322,8 +1320,9 @@ MonoBehaviour:
   plasmaBullet: {fileID: 3099830710757194685, guid: 67084b6b1c279164ea9d42655340953d,
     type: 3}
   posSpawnBullet: {fileID: 933840612}
-  timeShot: 0.3
+  timeShot: 0.4
   timeBtwShot: 0
+  canShot: 0
 --- !u!95 &1171842369
 Animator:
   serializedVersion: 3
@@ -1549,7 +1548,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522177678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: -3, z: 0}
+  m_LocalPosition: {x: 17.33, y: -3.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1398966261}
