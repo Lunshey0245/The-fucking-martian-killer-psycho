@@ -5,6 +5,8 @@ public class EnemyAttack : MonoBehaviour
 {
     public GameObject bullet;
     public Transform bulletSpawnPoint;
+    public int minDelay;
+    public int maxDelay;
 
     public bool isReadyToAttack = true;
 
@@ -26,7 +28,7 @@ public class EnemyAttack : MonoBehaviour
 
     IEnumerator WaitAndShoot()
     {
-        yield return new WaitForSeconds(Random.Range(3, 8));
+        yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
         Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
         isReadyToAttack = true;
     }

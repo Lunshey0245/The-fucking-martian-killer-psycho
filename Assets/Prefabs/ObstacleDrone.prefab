@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 9024357360112457826, guid: 8018bb8ed53b62d428b684ea42746894, type: 3}
   bulletSpawnPoint: {fileID: 3129504577223983355}
+  minDelay: 2
+  maxDelay: 3
   isReadyToAttack: 1
 --- !u!1 &7109560130598889361
 GameObject:
