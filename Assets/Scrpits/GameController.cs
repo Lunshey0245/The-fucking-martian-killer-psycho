@@ -37,6 +37,10 @@ public class GameController : MonoBehaviour
 
             }
         }
+        if (speed > 14)
+        {
+            StopAllCoroutines();
+        }
 
     }
     public void PauseGame()
