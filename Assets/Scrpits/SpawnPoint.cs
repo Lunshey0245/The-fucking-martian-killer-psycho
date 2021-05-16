@@ -12,7 +12,13 @@ public class SpawnPoint : MonoBehaviour
     private int minTime;
     [SerializeField]
     private int maxTime;
-    
+    [SerializeField]
+    public bool isAirSpawm;
+    [SerializeField]
+    public Transform midSpawnPointPosition;
+    [SerializeField]
+    public Transform topSpawnPointPosition;
+
     private bool isReady = true;
 
     private void Update()
@@ -40,6 +46,16 @@ public class SpawnPoint : MonoBehaviour
 
     public void SpawnObject(GameObject spawnMe)
     {
-        Instantiate(spawnMe, this.transform.position, Quaternion.identity, this.transform);
+        if (!isAirSpawm)
+        {
+            Instantiate(spawnMe, this.transform.position, Quaternion.identity, this.transform);
+        }
+        else
+        {
+            float randomYPos = Random.Range(midSpawnPointPosition.position.y, topSpawnPointPosition.position.y);
+            Vector3 newPosition = this.transform.position;
+            newPosition.y = randomYPos;
+            Instantiate(spawnMe, newPosition, Quaternion.identity, this.transform);
+        }
     }
 }
