@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     float timeBtwShot;
-    [SerializeField]
-    int timeShotMax;
+
     [SerializeField]
     int timeShotMin;
+    [SerializeField]
+    int timeShotMax;
 
     [SerializeField]
     Transform shotPos;
@@ -28,6 +29,8 @@ public class EnemyAttack : MonoBehaviour
         {
             fireShot.SetActive(false);
         }
+        Instantiate(bullet, shotPos.transform.position, Quaternion.identity);
+
     }
 
     // Update is called once per frame
@@ -44,15 +47,13 @@ public class EnemyAttack : MonoBehaviour
             }
             Instantiate(bullet, shotPos.transform.position, Quaternion.identity);
         }
-        /*if (timeBtwShot > 0)
-        {
 
-        }*/
-        IEnumerator FireAnimation()
-        {
-            fireShot.SetActive(true);
-            yield return new WaitForSeconds(0.2f);
-            fireShot.SetActive(false);
-        }
+
+    }
+    IEnumerator FireAnimation()
+    {
+        fireShot.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        fireShot.SetActive(false);
     }
 }

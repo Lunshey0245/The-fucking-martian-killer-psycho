@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 8201397139196196099}
   m_Layer: 0
   m_Name: Bullets
-  m_TagString: Untagged
+  m_TagString: BulletEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2687c78343c1a74087d6bfb66e5612d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpgrate: 8
+  speedUpgrate: 9
 --- !u!58 &8201397139196196099
 CircleCollider2D:
   m_ObjectHideFlags: 0

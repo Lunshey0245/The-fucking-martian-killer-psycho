@@ -239,8 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2f0b2408ffd0640a4fd03e12165227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeShotMax: 2
-  timeShotMin: 4
+  timeShotMin: 1
+  timeShotMax: 4
   shotPos: {fileID: 8419479570976221024}
   bullet: {fileID: 1200763703469037473, guid: 891dd98edc3422a49a0d0f04992f4c27, type: 3}
   fireShot: {fileID: 8603044129441911540}

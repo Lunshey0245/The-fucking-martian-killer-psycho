@@ -7,6 +7,7 @@ TagManager:
   - FinalBox
   - Fuel
   - Enemy
+  - BulletEnemy
   layers:
   - Default
   - TransparentFX

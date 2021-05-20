@@ -9,9 +9,11 @@ public class SpawnPoint : MonoBehaviour
     [SerializeField]
     private float _secondsBetweenSpawns;
     [SerializeField]
-    private int minTime;
+    private float minTime;
     [SerializeField]
-    private int maxTime;
+    private float maxTime;
+    [SerializeField]
+    float timeMaxRandom;
     [SerializeField]
     public bool isAirSpawm;
     [SerializeField]
@@ -21,6 +23,13 @@ public class SpawnPoint : MonoBehaviour
 
     private bool isReady = true;
 
+
+    private void Start()
+    {
+        timeMaxRandom = maxTime;
+        StartCoroutine(TimeSpawnUpgrate());
+
+    }
     private void Update()
     {        
         if (GameController.GetGameState())
@@ -37,11 +46,25 @@ public class SpawnPoint : MonoBehaviour
     IEnumerator GetObjects()
     {
         int randomEnemyIndex = Random.Range(0, _objectsToSpawn.Count);
-        int seconds = Random.Range(minTime, maxTime);
+        float seconds = Random.Range(minTime, timeMaxRandom);
 
         yield return new WaitForSeconds(seconds);
         SpawnObject(_objectsToSpawn[randomEnemyIndex]);
         isReady = true;
+    }
+
+    IEnumerator TimeSpawnUpgrate()
+    {
+        while (true)
+        {
+            timeMaxRandom -= 0.4f;
+            //maxTime = timeToUpgrate;
+            yield return new WaitForSeconds(1);
+            if (timeMaxRandom < maxTime / 2)
+            {
+                break;
+            }
+        }
     }
 
     public void SpawnObject(GameObject spawnMe)

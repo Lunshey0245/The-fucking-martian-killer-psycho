@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
         if (canShot)
         {
             timeBtwShot -= Time.deltaTime;
-            if (timeBtwShot <= 0)
+            if (timeBtwShot <= 0 & Input.GetKeyDown(KeyCode.RightControl))
             {
                 timeBtwShot = 0;
                 if (canShot)

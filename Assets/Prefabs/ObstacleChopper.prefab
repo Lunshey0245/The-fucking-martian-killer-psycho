@@ -159,10 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2f0b2408ffd0640a4fd03e12165227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeShotMax: 1
-  timeShotMin: 3
+  timeShotMin: 1
+  timeShotMax: 3
   shotPos: {fileID: 3557718433127274927}
   bullet: {fileID: 5723730017098873433, guid: da21f7d95c0b6b8459cb870a9a3115da, type: 3}
+  fireShot: {fileID: 0}
+  isJeep: 0
 --- !u!1 &7109560130598889361
 GameObject:
   m_ObjectHideFlags: 0

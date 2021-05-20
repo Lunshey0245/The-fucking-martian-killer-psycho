@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
@@ -25,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     bool isDead = false;
+
+    [SerializeField]
+    GameObject GOToDie;
+
     void Start()
     {
         isFlying = false;
@@ -53,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
             _animatorChildren.SetBool("Isflying", false);
         }
 
-        if (isFlying)
+        /*if (isFlying)
         {
             UseFuel(1);
         }
@@ -61,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isUseFuelPerSecond = false;
             StartCoroutine(UseFuelAlways());
-        }
+        }*/
     }
     private void FixedUpdate()
     {
@@ -113,13 +116,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Fuel"))
         {
-            currentFuel += 200;
+            currentFuel += 300;
             if (currentFuel > fuelMax)
             {
                 currentFuel = fuelMax;
             }
             fuelBar.SetFuel(currentFuel);
             Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("BulletEnemy"))
+        {
+            Destroy(gameObject);
+            Instantiate(GOToDie, transform.position, Quaternion.identity);
+            GameController.FindObjectOfType<GameController>().GetComponent<GameController>().GameOver();
         }
     }
 }

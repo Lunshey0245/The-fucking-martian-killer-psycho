@@ -15,9 +15,12 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     GameObject[]partsObstacle;
 
+    GameController _gameController;
+
     void Start()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _gameController = FindObjectOfType<GameController>().GetComponent<GameController>();
     }
 
     void Update()
@@ -33,6 +36,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(GOToDie, transform.position, Quaternion.identity);
+            _gameController.score += 5;
 
             foreach (var part in partsObstacle)
             {
@@ -40,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
             }
             if (Random.Range(0,2) == 1)
             {
-                Instantiate(fuelReward, this.transform.position, Quaternion.identity);
+                //Instantiate(fuelReward, this.transform.position, Quaternion.identity);
             }
         }
     }
